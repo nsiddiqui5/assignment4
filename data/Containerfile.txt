@@ -1,0 +1,6 @@
+FROM fedora:latest
+RUN dnf upgrade --refresh -y
+RUN yum install -yqq tuxpaint vim httpd
+RUN touch /var/www/html/myinfo.html
+EXPOSE 80/tcp
+ENTRYPOINT /usr/sbin/httpd -DFOREGROUND
